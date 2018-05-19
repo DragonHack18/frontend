@@ -8,8 +8,8 @@ function requireBalance() {
 }
 
 function responseFunction() {
-    $('.mon').text(this.responseText);
-
+    $('#money-amount').text(parseInt(this.responseText.replace("\"", "")) + "€");
+    console.log(this.responseText);
 }
 
 // function transferMoney(money) {

@@ -1,0 +1,24 @@
+#main {
+    padding-left: 80px;
+    /* padding-right: 80px; */
+}
+
+#side {
+    padding-top: 51px;
+    /* padding-right: 420px; */
+}
+
+.mon {
+    background-color: #0069D9; /* Blue */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 160px;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+}
+
+.mon {border-radius: 200px;}

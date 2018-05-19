@@ -1,10 +1,10 @@
 #main {
-    padding-left: 80px;
     /* padding-right: 80px; */
 }
 
 #side {
-    padding-top: 51px;
+    padding-top: 70px;
+    padding-right: 90px;
     /* padding-right: 420px; */
 }
 
@@ -21,4 +21,38 @@
     cursor: pointer;
 }
 
-.mon {border-radius: 200px;}
+.mon {
+    border-radius: 200px;
+}
+
+.center-me {
+    text-align: -webkit-center;
+}
+
+.ribic-circle {
+    height: 300px;
+    width: 300px;
+    background-color: #0069d9;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.money-text {
+    margin-top: 22%;
+    font-size: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+}
+
+
+.content-padding {
+    padding: 50px;
+    padding-right: 150px;
+    padding-left: 150px;
+}
+
+.padding-right-content {
+    padding-right: 50px
+}

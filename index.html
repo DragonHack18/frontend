@@ -4,14 +4,21 @@
 
     <?php include 'requestBalance.php';?>
     <!-- libraries -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
     <script type="text/javascript" src="./script.js"></script>
     <script type="text/javascript" src="./jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,54 +26,59 @@
 </head>
 <body>
 
-    <div class="row">
-        <div  id="main" class="container col-8 order-md-1">
-                <h1>RaspberryWallet</h1>
-                <label for="usr">Your address:</label>
-                <input type="text" class="form-control" id="usr" value="1455-8899-5566-7568" disabled>
+<div class="row">
+    <div id="main" class="content-padding container col-8 order-md-1">
+        <h1>RaspberryWallet</h1>
+        <label for="usr">Your address:</label>
+        <input type="text" class="form-control" id="usr" value="1455-8899-5566-7568" disabled>
 
-                <label for="rec">Recipient address:</label>
-                <input type="text" class="form-control" id="rec">
+        <label for="rec">Recipient address:</label>
+        <input type="text" class="form-control" id="rec">
 
-                <label for="amount">Amount:</label>
-                <input type="text" class="form-control" id="amount">
+        <label for="amount">Amount:</label>
+        <input type="text" class="form-control" id="amount">
 
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
-                <br>
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+        <br>
 
-            <button id="subButton" type="submit" class="btn btn-primary" onclick="transferMoney()">Send</button>
-        </div>    
+        <button id="subButton" type="submit" class="btn btn-primary" onclick="transferMoney()">Send</button>
+    </div>
 
-        <div id="side" class="container col-4 order-md-2">
+    <div id="side" class="container col-4 order-md-2">
+        <div class="align-content-center center-me">
+
             <h4>Current balance:</h4>
 
             <!-- <input type="text" class="form-control" id="money" value="50 €" disabled> -->
 
-            <button class="mon">50 €</button>
+            <div class="ribic-circle">
+                <div class="money-text" id="money-amount">500€</div>
+            </div>
         </div>
     </div>
+</div>
 
-    <!-- modal -->
-    <div class="modal fade" id="myModal" role="dialog">
+<!-- modal -->
+<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
+
     </div>
-  </div>
-    
+</div>
+
 </body>
 </html>

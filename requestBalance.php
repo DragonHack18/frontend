@@ -13,5 +13,3 @@
     curl_close($curl);
 
     echo (json_encode($resp, JSON_UNESCAPED_UNICODE));
-
-?>

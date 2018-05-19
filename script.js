@@ -1,3 +1,6 @@
+var looperNumber = 0;
+
+
 function requireBalance() {
     var requestUrl = "requestBalance.php";
     var oReq = new XMLHttpRequest();
@@ -7,34 +10,69 @@ function requireBalance() {
     oReq.send();
 }
 
+function requestPaymentConfirmation(money) {
+    var requestUrl = "requestPay.php?walletid=1&amount=" + money;
+    var oReq = new XMLHttpRequest();
+    console.log("requestingPayment: " + requestUrl);
+    oReq.addEventListener("load", requestPaymentConfirmationResponse);
+    oReq.open("GET", requestUrl);
+    oReq.send();
+}
+
+function requestPaymentConfirmed() {
+    var requestUrl = "requestConfirmation.php";
+    var oReq = new XMLHttpRequest();
+    console.log("requestingIfPaymentConfirmed: " + requestUrl);
+    oReq.addEventListener("load", paymentConfirmationResponse);
+    oReq.open("GET", requestUrl);
+    oReq.send();
+}
+
+function paymentConfirmationResponse() {
+    if (this.responseText === "1") {
+        document.getElementById("transaction-text").innerText = "Transaction was successful";
+    }
+}
+
+
+function requestPaymentConfirmationResponse() {
+    console.log(this.responseText);
+}
+
 function responseFunction() {
     $('#money-amount').text(parseInt(this.responseText.replace("\"", "")) + "€");
     console.log(this.responseText);
 }
+var intervalId;
+function transferMoney(money) {
+    money = document.getElementById("amount").value;
+    requestPaymentConfirmation(money);
 
-// function transferMoney(money) {
-//     console.log("neki");
+    intervalId = window.setInterval(checkConfirmation(), 3000);
+    showModalDialog();
 
-//     $.ajax({
-//         type : 'GET',
-//         url : 'http:193.2.178.88/dragonhack/public/api/pay/{amount}/{walletid}',
-//       //Any post-data/get-data parameters
-//       //This is optional
-//         data : {
-//           'amount' : 'money',
-//         //   TODO: hardcodan id
-//           'walletid' : ''
-//         },
-//       //The response from the server
-//         success : function(data) {
-//           if (data == "success") {
-//             alert('request sent!');
-//           }
-//         }
-//       });
-// }
+}
 
-$(function() { 
+function showModalDialog() {
+    var modal = $('#myModal');
+    modal.modal();
+}
+
+
+function checkConfirmation() {
+    looperNumber++;
+    if (looperNumber === 5) {
+        window.clearInterval(intervalId);
+        looperNumber = 0;
+    }
+    requestPaymentConfirmed()
+}
+
+function cancelInterval() {
+
+}
+
+$(function () {
     $('.mon').text('60');
     requireBalance();
 });

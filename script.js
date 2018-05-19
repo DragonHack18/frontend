@@ -1,14 +1,15 @@
 function requireBalance() {
-    var requestUrl = "localhost/dragonhack/public/index.php/api/amount";
+    var requestUrl = "requestBalance.php";
     var oReq = new XMLHttpRequest();
-    // console.log("requestFilterData: " + requestUrl);
+    console.log("requestFilterData: " + requestUrl);
     oReq.addEventListener("load", responseFunction);
     oReq.open("GET", requestUrl);
     oReq.send();
 }
 
 function responseFunction() {
-    console.log(this.responseText);
+    $('.mon').text(this.responseText);
+
 }
 
 // function transferMoney(money) {

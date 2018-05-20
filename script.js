@@ -58,8 +58,8 @@ function transferMoney(money) {
 }
 
 function showModalDialog() {
-    var modal = $('#myModal');
-    modal.modal();
+    jQuery.noConflict();
+    $("#myModal").modal('show');
 }
 
 

@@ -45,32 +45,25 @@ function responseFunction() {
     $('#money-amount').text(parseInt(this.responseText.replace("\"", "")) + "€");
     console.log(this.responseText);
 }
-var intervalId;
 
 
 function transferMoney(money) {
     money = document.getElementById("amount").value;
     requestPaymentConfirmation(money);
-
-    intervalId = window.setInterval(checkConfirmation(), 3000);
     showModalDialog();
 
 }
 
 function showModalDialog() {
+    document.getElementById("transaction-text").innerText = "Transaction in progress";
     jQuery.noConflict();
     $("#myModal").modal('show');
+
 }
 
 
 function checkConfirmation() {
-    looperNumber++;
-    if (looperNumber === 5) {
-        window.clearInterval(intervalId);
-        looperNumber = 0;
-    }
-    requestPaymentConfirmed()
-}
+ }
 
 function cancelInterval() {
 

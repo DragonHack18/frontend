@@ -37,6 +37,8 @@ function paymentConfirmationResponse() {
 
 function requestPaymentConfirmationResponse() {
     console.log(this.responseText);
+    document.getElementById("transaction-text").innerText = "Transaction was successful";
+    requireBalance();
 }
 
 function responseFunction() {
@@ -44,6 +46,8 @@ function responseFunction() {
     console.log(this.responseText);
 }
 var intervalId;
+
+
 function transferMoney(money) {
     money = document.getElementById("amount").value;
     requestPaymentConfirmation(money);
